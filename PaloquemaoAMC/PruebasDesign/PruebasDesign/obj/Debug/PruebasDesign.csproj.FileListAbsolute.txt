@@ -1,0 +1,5 @@
+c:\users\jf\documents\visual studio 2012\Projects\PruebasDesign\PruebasDesign\bin\PruebasDesign.dll
+c:\users\jf\documents\visual studio 2012\Projects\PruebasDesign\PruebasDesign\bin\PruebasDesign.pdb
+c:\users\jf\documents\visual studio 2012\Projects\PruebasDesign\PruebasDesign\obj\Debug\PruebasDesign.csprojResolveAssemblyReference.cache
+c:\users\jf\documents\visual studio 2012\Projects\PruebasDesign\PruebasDesign\obj\Debug\PruebasDesign.dll
+c:\users\jf\documents\visual studio 2012\Projects\PruebasDesign\PruebasDesign\obj\Debug\PruebasDesign.pdb

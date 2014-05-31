@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaloquemaoACM", "PruebasDesign\PaloquemaoACM.csproj", "{4C3D4F48-913D-4F81-8450-01AE590AAD93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessData", "AccessData\AccessData.csproj", "{A7872BE7-3CF0-4103-8494-F4CFC782BEB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C3D4F48-913D-4F81-8450-01AE590AAD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C3D4F48-913D-4F81-8450-01AE590AAD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C3D4F48-913D-4F81-8450-01AE590AAD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C3D4F48-913D-4F81-8450-01AE590AAD93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7872BE7-3CF0-4103-8494-F4CFC782BEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7872BE7-3CF0-4103-8494-F4CFC782BEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7872BE7-3CF0-4103-8494-F4CFC782BEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7872BE7-3CF0-4103-8494-F4CFC782BEB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
