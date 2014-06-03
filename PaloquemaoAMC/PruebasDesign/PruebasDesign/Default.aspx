@@ -8,12 +8,13 @@
 
 
         <!--Boton de busqueda-->
-        <div id="sb-search" class="sb-search">
+        <div class="sb-search">
             <form>
                 <%--<input class="sb-search-input" placeholder="Ingrese su busqueda por favor..." 
                     type="text" value="" name="search" id="txbBuscar">--%>
-                <asp:TextBox ID="txbBuscar" CssClass="sb-search-input" runat="server"></asp:TextBox>
-                <input class="sb-search-submit" type="submit" value="" runat="server" onclick="">
+                <asp:TextBox ID="txbBuscar" runat="server" CssClass="sb-search-input"></asp:TextBox>
+                <%--<input class="sb-search-submit" type="submit" value="" runat="server" onclick="">--%>
+                <asp:Button ID="btnBuscar" runat="server" CssClass="sb-search-submit" OnClick="btnBuscar_Click" />
                 <span class="sb-icon-search"></span>
             </form>
         </div>
@@ -31,7 +32,7 @@
             <asp:AsyncPostBackTrigger  ControlID="txbBuscar"/>
         </Triggers>
          <ContentTemplate>--%>
-        <asp:GridView runat="server" ID="gvCategorias"  CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="grid-result">
+        <asp:GridView runat="server" ID="gvCategorias" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="grid-result">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -56,7 +57,7 @@
             <p>Entradas:</p>
 
 
-            <table style="width: 100%;" runat="server" id="tablaGeneral">
+            <table style="width: 100%;" runat="server" id="tablaGeneral" class="table table-hover">
                 <tr>
                     <td class="auto-style2">
                         <asp:Label ID="lblCodigo" runat="server" Text="Codigo producto"></asp:Label>
@@ -128,7 +129,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Button ID="btnCrearProducto" runat="server" Text="Nuevo Producto" OnClick="btnCrearProducto_Click" />
+                        <asp:Button ID="btnCrearProducto" runat="server" Text="Nuevo Producto" OnClick="btnCrearProducto_Click" CssClass="btn btn-warning" />
                     </td>
                     <td class="auto-style1">
                         <asp:Label ID="lblErrorProd" runat="server"></asp:Label>

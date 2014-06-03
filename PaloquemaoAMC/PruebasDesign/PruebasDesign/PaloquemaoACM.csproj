@@ -69,6 +69,7 @@
     <Content Include="Imagenes\desechables1.jpg" />
     <Content Include="Imagenes\enlatados1.JPG" />
     <Content Include="Imagenes\licores1.jpg" />
+    <Content Include="Imagenes\search.png" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -79,16 +80,19 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </Content>
+    <Content Include="fonts\search.eot" />
+    <Content Include="fonts\search.ttf" />
+    <Content Include="fonts\search.woff" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\modernizr-2.7.2.js" />
-    <Content Include="search.svg" />
     <Content Include="Styles\buttonSearch.css" />
     <Content Include="Styles\Inicio.css" />
     <Content Include="Styles\divsVivos.css" />
+    <Content Include="Styles\ligthBoxLogin.css" />
     <Content Include="Styles\styleSlide.css" />
     <Content Include="Web.config" />
   </ItemGroup>
