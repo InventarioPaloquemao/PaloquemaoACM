@@ -86,3 +86,20 @@ span#Default_lblErrorProd {
     background-color:springgreen;
     
 }
+
+select{
+    color:#000000;
+}
+
+span {
+    color:#f2da67 aqua;
+    font-weight:bold;
+}
+
+#navIngreso {
+    position:relative;
+    float:right;
+    right:10px;
+    top:15px;
+
+}
