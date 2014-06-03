@@ -19,7 +19,7 @@ namespace PaloquemaoACM
         /// <summary>
         /// Instancia de un objeto de la clase LinkButton
         /// </summary>
-        LinkButton lkbtn = new LinkButton();
+       Button btnCategorias = new Button();
         string btn = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -138,19 +138,19 @@ namespace PaloquemaoACM
                 foreach (string linea in lista)
                 {
 
-                    lkbtn = new LinkButton();
-                    lkbtn.ID = linea;
-                    lkbtn.Text = linea;
+                    btnCategorias = new Button();
+                    btnCategorias.ID = linea;
+                    btnCategorias.Text = linea;
                     //asigno el algoritmo que va a dar un nombre unico al control dentro del dom de HTML 
-                    lkbtn.ClientIDMode = System.Web.UI.ClientIDMode.AutoID;
+                    btnCategorias.ClientIDMode = System.Web.UI.ClientIDMode.AutoID;
                     //agrego el evento y el metodo que se desencadena al control
-                    lkbtn.Attributes.Add("onClick", "ClickInLinkButtom()");
+                    btnCategorias.Attributes.Add("onClick", "ClickInLinkButtom()");
                     //Agrego un manejador de eventos
-                    lkbtn.Click += new EventHandler(this.ClickInLinkButtom);
+                    btnCategorias.Click += new EventHandler(this.ClickInLinkButtom);
                     //Valido el numero de celdas creadas por fila
                     if (iteraciones < 6)
                     {
-                        objCelda.Controls.Add(lkbtn);
+                        objCelda.Controls.Add(btnCategorias);
                         objFila.Cells.Add(objCelda);
                         iteraciones++;
                     }
@@ -158,7 +158,7 @@ namespace PaloquemaoACM
                     {
                         objCelda = new TableCell();
                         objFila = new TableRow();
-                        objCelda.Controls.Add(lkbtn);
+                        objCelda.Controls.Add(btnCategorias);
                         objFila.Cells.Add(objCelda);
                         tableNav.Controls.Add(objFila);
                         iteraciones = 0;
