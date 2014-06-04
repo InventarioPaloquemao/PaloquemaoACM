@@ -12,6 +12,9 @@ namespace PaloquemaoACM
 {
     public partial class Default : System.Web.UI.Page
     {
+        string nombre;
+        string categoria;
+        List <string> ListaEntrada=new List<string>();
         /// <summary>
         /// Lista almacena una lista de tipo string
         /// </summary>
@@ -28,6 +31,7 @@ namespace PaloquemaoACM
             if (!IsPostBack)
             {
                 CargarDropDownList();
+              
             }
 
             cargarGridView(btn);
@@ -53,6 +57,10 @@ namespace PaloquemaoACM
             ddlProveedor.DataValueField = "Id_Proveedor";
             ddlProveedor.DataBind();
 
+            if (ViewState["Valor"] != null)
+            {
+                lblErrorProd.Text = (string)ViewState["Valor"];
+            }
         }
 
         /// <summary>
@@ -65,7 +73,7 @@ namespace PaloquemaoACM
         {
             try
             {
-
+                int categoria= ddlCategoria.SelectedIndex+1;
                 ProductosTableAdapter objAdapter = new ProductosTableAdapter();
                 if ((ddlCategoria.SelectedIndex != 0 && ddlProveedor.SelectedIndex != 0))
                 {
@@ -77,24 +85,36 @@ namespace PaloquemaoACM
                         Convert.ToInt32(txbTotalUnidades.Text.Trim()),
                         Convert.ToDecimal(txbPrecioProveedor.Text.Trim()),
                         ddlProveedor.SelectedIndex,
-                        ddlCategoria.SelectedIndex
+                       categoria
                         );
 
                     if (filas > 0)
                     {
-                        lblErrorProd.Text = "Productos creado correctamente";
-                        //Response.Redirect("~/Default.aspx");
+
+                        lblErrorProd.Text = "Nuevo producto";
+                        ViewState.Add("Valor",lblErrorProd);
+                        Response.Redirect("/Default.aspx#registroProducto");
+                       
+                        
+                        
                     }
                     else
                     {
                         lblErrorProd.Text = "No se puede crear el producto";
+                        ViewState.Add("Valor", lblErrorProd);
+                        Response.Redirect("/Default.aspx#registroProducto");
+                       
+                        
                     }
 
 
                 }
                 else
                 {
-                    lblErrorProd.Text = "Por favor seleccione valores validos para las listas despegables";
+                    lblErrorProd.Text = "Seleccione un valor en las listas despegables";
+                    ViewState.Add("Valor", lblErrorProd);
+                    Response.Redirect("/Default.aspx#registroProducto");
+                   
                 }
             }
             catch
@@ -270,11 +290,22 @@ namespace PaloquemaoACM
             GridViewRow objFila=gvCategorias.SelectedRow;
             
             if(objFila != null){
-                string nombre = objFila.Cells[1].Text;
-                string categoria = objFila.Cells[2].Text;
-
+                 nombre = objFila.Cells[1].Text;
+                 categoria = objFila.Cells[2].Text;
+                 txbNombreProducto.Focus();
+                 txbNombreProducto.Text = nombre;
+                 txbCategoria.Text = categoria;
+                 ListaEntrada.Add(nombre);
+                 ListaEntrada.Add(categoria);
+                 ViewState.Add("ValoresProductos",ListaEntrada);
                 Response.Redirect("/Default.aspx#regProducto");
             }
+        }
+
+        protected void btnActualizarCantidad_Click(object sender, EventArgs e)
+        {
+           
+
         }
 
 
