@@ -88,10 +88,11 @@ body {
 	background-color: #b1e583;
 }
 #inicio:target ~ #header #navigation #link-inicio,
-#entradaProducto:target ~ #header #navigation #link-entradaProductos,
+#registroProducto:target ~ #header #navigation #link-registroProducto,
 #pedidos:target ~ #header #navigation #link-pedidos,
 #contact:target ~ #header #navigation #link-contact,
-#productos:target ~ #header #navigation #link-productos{
+#categorias:target ~ #header #navigation #link-categorias
+#regProducto:target ~ #header #navigation #link-regProducto{
 	background: #000;
 	color: #fff;
 }

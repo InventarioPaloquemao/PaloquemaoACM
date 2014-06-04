@@ -41,10 +41,10 @@ namespace PaloquemaoACM
         /// </summary>
         protected void CargarDropDownList()
         {
-
-            CategoriasTableAdapter objAdapterCategoria = new CategoriasTableAdapter();
+           // pa_ObtenerCategoriasTableAdapter 
+            CategoriasTableAdapter objCategoria = new CategoriasTableAdapter();
             ProveedoresTableAdapter objAdapterProveedor = new ProveedoresTableAdapter();
-            ddlCategoria.DataSource = objAdapterCategoria.GetData();
+            ddlCategoria.DataSource = objCategoria.GetData();
             ddlCategoria.DataTextField = "Descripcion";
             ddlCategoria.DataValueField = "Id_Categoria";
             ddlCategoria.DataBind();
@@ -115,9 +115,9 @@ namespace PaloquemaoACM
                 /// Instancia de un DataTable
                 DataTable objCategoriaTablaBuscada = new DataTable();
                 ///Instancia de un Table Adapter para las categorias
-                CategoriasTableAdapter objCategoriaTableAdapter = new CategoriasTableAdapter();
+                pa_ObtenerCategoriasTableAdapter objpaCategoria = new pa_ObtenerCategoriasTableAdapter();
                 //Obtengo los valores almacenados en el DataSet y los asigono a un datatable
-                objCategoriaTablaBuscada = objCategoriaTableAdapter.GetData();
+                objCategoriaTablaBuscada = objpaCategoria.GetData();
                 ///Agrego valores a la lista desde un datatable recorriendo las filas y obteniendo los valores de la celda especifica 
                 for (int i = 0; i < objCategoriaTablaBuscada.Rows.Count; i++)
                 {
@@ -148,7 +148,7 @@ namespace PaloquemaoACM
                     //Agrego un manejador de eventos
                     btnCategorias.Click += new EventHandler(this.ClickInLinkButtom);
                     //Valido el numero de celdas creadas por fila
-                    if (iteraciones < 6)
+                    if (iteraciones <= 4)
                     {
                         objCelda.Controls.Add(btnCategorias);
                         objFila.Cells.Add(objCelda);
@@ -259,6 +259,22 @@ namespace PaloquemaoACM
             }
             catch (Exception)
             { }
+        }
+        /// <summary>
+        /// Evento al cual responde el gridview al hacer click en la fila
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void gvCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow objFila=gvCategorias.SelectedRow;
+            
+            if(objFila != null){
+                string nombre = objFila.Cells[1].Text;
+                string categoria = objFila.Cells[2].Text;
+
+                Response.Redirect("/Default.aspx#regProducto");
+            }
         }
 
 

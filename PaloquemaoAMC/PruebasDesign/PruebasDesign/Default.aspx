@@ -20,19 +20,10 @@
         </div>
         <!--/Boton de busqueda-->
 
-        <%--Update panel para la tabla que contiene las categorias  --%>
-
 
         <asp:Table ID="tableNav" runat="server"></asp:Table>
 
-
-        <%-- UpdatePanel para el gridview --%>
-        <%-- <asp:UpdatePanel ID="upProductos" runat="server">
-        <Triggers>
-            <asp:AsyncPostBackTrigger  ControlID="txbBuscar"/>
-        </Triggers>
-         <ContentTemplate>--%>
-        <asp:GridView runat="server" ID="gvCategorias" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="grid-result">
+        <asp:GridView runat="server" ID="gvCategorias" CellPadding="4" ForeColor="#333333" GridLines="None" CssClass="grid-result" OnSelectedIndexChanged="gvCategorias_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -44,17 +35,20 @@
             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            <Columns>
+                    <asp:CommandField ShowSelectButton="True" SelectText="Actualizar existencias "/>
+            </Columns>
         </asp:GridView>
-        <%--     </ContentTemplate>
-   </asp:UpdatePanel>--%>
+
+        <%--Inicio--%>
     </div>
     <!-- /Inicio -->
 
-    <!-- EntradaProductos -->
-    <div id="entradaProducto" class="panel">
+    <!-- Registro producto -->
+    <div id="registroProducto" class="panel">
         <div class="content">
 
-            <p>Entradas:</p>
+            <p>Nuevo producto</p>
 
 
             <table style="width: 100%;" runat="server" id="tablaGeneral" class="table table-hover">
@@ -75,7 +69,7 @@
 
                     <td class="auto-style1">
                         <asp:TextBox ID="txbNombreProd" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvNombreProd" runat="server" ErrorMessage="Campo obligatorio" ForeColor="Red" ControlToValidate="txbNombreProd"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvNombreProd" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbNombreProd"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -85,7 +79,7 @@
 
                     <td class="auto-style1">
                         <asp:TextBox ID="txbCantixCaja" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvCantixCaja" runat="server" ErrorMessage="Campo obligatorio" ForeColor="Red" ControlToValidate="txbCantixCaja"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvCantixCaja" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbCantixCaja"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -95,7 +89,7 @@
 
                     <td class="auto-style1">
                         <asp:TextBox ID="txbTotalUnidades" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvTotalUnidades" runat="server" ErrorMessage="Campo obligatorio" ForeColor="Red" ControlToValidate="txbTotalUnidades"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvTotalUnidades" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbTotalUnidades"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
 
@@ -105,7 +99,7 @@
 
                     <td class="auto-style1">
                         <asp:TextBox ID="txbPrecioProveedor" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvPrecioProveedor" runat="server" ErrorMessage="Campo obligatorio" ForeColor="Red" ControlToValidate="txbPrecioProveedor"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPrecioProveedor" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbPrecioProveedor"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -123,8 +117,7 @@
 
                     <td class="auto-style1">
                         <asp:DropDownList ID="ddlProveedor" runat="server"></asp:DropDownList>
-                        <asp:RequiredFieldValidator ID="RrfvProveedor" runat="server" ErrorMessage="Campo obligatorio" ForeColor="Red" ControlToValidate="ddlProveedor"></asp:RequiredFieldValidator>
-                    </td>
+                        </td>
                     <td></td>
                 </tr>
                 <tr>
@@ -145,7 +138,7 @@
 
         </div>
     </div>
-    <!-- /EntradaProductos -->
+    <!-- /Registro producto -->
 
     <!-- Pedidos -->
     <div id="pedidos" class="panel">
@@ -160,9 +153,9 @@
     <!-- /Pedidos -->
 
 
-    <!-- Productos -->
+    <!-- Categorias -->
 
-    <div id="productos" class="panel">
+    <div id="categorias" class="panel">
         <div class="content">
 
             <!-- Divs Vivos -->
@@ -209,7 +202,16 @@
             <!-- /Divs Vivos -->
         </div>
     </div>
-    <!-- /Productos -->
+    <!-- /Categorias -->
+
+    <!-- Actualizar Existencias -->
+
+    <div id="regProducto" class="panel">
+        <div class="content">
+            <h1>Actualizar Existencias</h1>
+        </div>
+    </div>
+    <!-- /Actualizar existencias -->
 
     <!-- Contacto -->
     <div id="contact" class="panel">
@@ -232,5 +234,5 @@
     </div>
     <!-- /Contacto -->
 
-
+    <script src="Scripts/Default.js" type="text/javascript"></script>
 </asp:Content>
