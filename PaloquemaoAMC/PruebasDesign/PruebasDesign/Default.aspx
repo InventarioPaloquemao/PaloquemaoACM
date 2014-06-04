@@ -36,7 +36,7 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
             <Columns>
-                    <asp:CommandField ShowSelectButton="True" SelectText="Actualizar existencias "/>
+                <asp:CommandField ShowSelectButton="True" SelectText="Actualizar existencias " />
             </Columns>
         </asp:GridView>
 
@@ -44,101 +44,103 @@
     </div>
     <!-- /Inicio -->
 
-    <!-- Registro producto -->
-    <div id="registroProducto" class="panel">
-        <div class="content">
+    <!-- Registro nuevo  producto -->
+ 
+            <div id="registroProducto" class="panel">
+                <div class="content">
 
-            <p>Nuevo producto</p>
-
-
-            <table style="width: 100%;" runat="server" id="tablaGeneral" class="table table-hover">
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblCodigo" runat="server" Text="Codigo producto"></asp:Label>
-
-                    </td>
-
-                    <td class="auto-style1">
-                        <asp:TextBox ID="txbCodigo" runat="server"></asp:TextBox>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblNombreProd" runat="server" Text="Nombre producto"></asp:Label></td>
-
-                    <td class="auto-style1">
-                        <asp:TextBox ID="txbNombreProd" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvNombreProd" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbNombreProd"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblCantixCaja" runat="server" Text="Unidades por caja"></asp:Label></td>
-
-                    <td class="auto-style1">
-                        <asp:TextBox ID="txbCantixCaja" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvCantixCaja" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbCantixCaja"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblTotalUnidades" runat="server" Text="Total unidades"></asp:Label></td>
-
-                    <td class="auto-style1">
-                        <asp:TextBox ID="txbTotalUnidades" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvTotalUnidades" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbTotalUnidades"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblPrecioProveedor" runat="server" Text="Precio proveedor"></asp:Label></td>
-
-                    <td class="auto-style1">
-                        <asp:TextBox ID="txbPrecioProveedor" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvPrecioProveedor" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbPrecioProveedor"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblCategoria" runat="server" Text="Categoria"></asp:Label></td>
-
-                    <td class="auto-style1">
-                        <asp:DropDownList ID="ddlCategoria" runat="server"></asp:DropDownList>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblProveedor" runat="server" Text="Proveedor"></asp:Label></td>
-
-                    <td class="auto-style1">
-                        <asp:DropDownList ID="ddlProveedor" runat="server"></asp:DropDownList>
-                        </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Button ID="btnCrearProducto" runat="server" Text="Nuevo Producto" OnClick="btnCrearProducto_Click" CssClass="btn btn-warning" />
-                    </td>
-                    <td class="auto-style1">
-                        <asp:Label ID="lblErrorProd" runat="server"></asp:Label>
-                    </td>
-                </tr>
-
-            </table>
+                    <p>Nuevo producto</p>
 
 
+                    <table style="width: 100%;" runat="server" id="tablaGeneral" class="table table-hover">
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lblCodigo" runat="server" Text="Codigo producto"></asp:Label>
 
-            <!--/Formulario de ingreso de nuevo producto-->
+                            </td>
+
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbCodigo" runat="server"></asp:TextBox>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lblNombreProd" runat="server" Text="Nombre producto"></asp:Label></td>
+
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbNombreProd" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvNombreProd" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbNombreProd"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lblCantixCaja" runat="server" Text="Unidades por caja"></asp:Label></td>
+
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbCantixCaja" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvCantixCaja" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbCantixCaja"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lblTotalUnidades" runat="server" Text="Total unidades"></asp:Label></td>
+
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbTotalUnidades" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvTotalUnidades" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbTotalUnidades"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lblPrecioProveedor" runat="server" Text="Precio proveedor"></asp:Label></td>
+
+                            <td class="auto-style1">
+                                <asp:TextBox ID="txbPrecioProveedor" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvPrecioProveedor" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txbPrecioProveedor"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lblCategoria" runat="server" Text="Categoria"></asp:Label></td>
+
+                            <td class="auto-style1">
+                                <asp:DropDownList ID="ddlCategoria" runat="server"></asp:DropDownList>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Label ID="lblProveedor" runat="server" Text="Proveedor"></asp:Label></td>
+
+                            <td class="auto-style1">
+                                <asp:DropDownList ID="ddlProveedor" runat="server"></asp:DropDownList>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style2">
+                                <asp:Button ID="btnCrearProducto" runat="server" Text="Nuevo Producto" OnClick="btnCrearProducto_Click" CssClass="btn btn-warning" />
+                            </td>
+                            <td class="auto-style1">
+                                <asp:Label ID="lblErrorProd" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+
+                    </table>
 
 
-        </div>
-    </div>
-    <!-- /Registro producto -->
+
+                    <!--/Formulario de ingreso de nuevo producto-->
+
+
+                </div>
+            </div>
+       
+    <!-- /Registro  nuevo producto -->
 
     <!-- Pedidos -->
     <div id="pedidos" class="panel">
@@ -209,6 +211,38 @@
     <div id="regProducto" class="panel">
         <div class="content">
             <h1>Actualizar Existencias</h1>
+            <table>
+                <tr>
+                    <td>
+                        <label id="lblNombreProducto">Nombre producto</label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txbNombreProducto" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="lblCategoria">Categoria</label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txbCategoria" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="lblNuevaCant">Nueva cantidad</label>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txbCantidad" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="btnActualizarCantidad" runat="server" Text="Actualizar cantidad" OnClick="btnActualizarCantidad_Click" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
         </div>
     </div>
     <!-- /Actualizar existencias -->
