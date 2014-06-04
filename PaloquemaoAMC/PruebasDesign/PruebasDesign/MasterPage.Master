@@ -73,9 +73,9 @@
                 <h1>ACM</h1>
                 <ul id="navigation">
                     <li><a id="link-inicio" href="#inicio">Inicio</a></li>
-                    <li><a id="link-entradaProductos" href="#entradaProducto">Entrada De Productos</a></li>
+                    <li><a id="link-registroProducto" href="#registroProducto">Nuevo Producto</a></li>
                     <li><a id="link-pedidos" href="#pedidos">Pedidos</a></li>
-                    <li><a id="link-productos" href="#productos">Productos</a></li>
+                    <li><a id="link-categorias" href="#categorias">Categorias</a></li>
                     <li><a id="link-contact" href="#contact">Contacto</a></li>
                 </ul>
 
