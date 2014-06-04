@@ -26,3 +26,4 @@ C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\Pr
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.dll
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.pdb
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.csprojResolveAssemblyReference.cache
+C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.csprojResolveAssemblyReference.cache
