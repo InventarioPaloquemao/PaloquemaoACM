@@ -19,3 +19,10 @@ C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDe
 C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\obj\Debug\PaloquemaoACM.csprojResolveAssemblyReference.cache
 C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\obj\Debug\PruebasDesign.dll
 C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\obj\Debug\PruebasDesign.pdb
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\bin\PruebasDesign.dll
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\bin\PruebasDesign.pdb
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\bin\AccessData.dll
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\bin\AccessData.pdb
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\obj\Debug\PaloquemaoACM.csprojResolveAssemblyReference.cache
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\obj\Debug\PruebasDesign.dll
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\PruebasDesign\obj\Debug\PruebasDesign.pdb
