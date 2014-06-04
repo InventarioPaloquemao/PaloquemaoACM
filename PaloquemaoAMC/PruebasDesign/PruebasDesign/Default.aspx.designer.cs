@@ -229,15 +229,6 @@ namespace PaloquemaoACM {
         protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
         
         /// <summary>
-        /// Control RrfvProveedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RrfvProveedor;
-        
-        /// <summary>
         /// Control btnCrearProducto.
         /// </summary>
         /// <remarks>
