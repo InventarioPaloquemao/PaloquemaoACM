@@ -42,24 +42,12 @@
                         <a href="#image-1">Inicie Sesión
 						</a>
                         <div class="lb-overlay" id="image-1">
-                            <section>
-                                <div class="form-2">
-                                    <h1><span class="log-in">Ingrese</span> o <span class="sign-up">registrese</span></h1>
-                                    <p class="float">
-                                        <label for="login"><i class="icon-user"></i>Usuario</label>
-                                        <input type="text" name="login" placeholder="Usuario o mail">
-                                    </p>
-                                    <p class="float">
-                                        <label for="password"><i class="icon-lock"></i>Contraseña</label>
-                                        <input type="password" name="password" placeholder="contraseña" class="showpassword">
-                                    </p>
-                                    <p class="clearfix">
-                                    </p>
-                               </div>
-                                ​​
-		
-                            </section>
-                            <a href="#page" class="lb-close">x Close</a>
+
+                            <div class="form-2">
+                                <asp:Login ID="logUser" runat="server"></asp:Login>
+                            </div>
+
+                            <a href="#page" class="lb-close">x Cerrar</a>
                         </div>
                     </li>
 
@@ -70,7 +58,7 @@
             <!--Barra de navegacion que contiene login en Ligthbox-->
 
             <div id="header">
-                <h1>ACM</h1>
+                <a href="#inicio" style="text-decoration:none;"><h1>ACM</h1></a>
                 <ul id="navigation">
                     <li><a id="link-inicio" href="#inicio">Inicio</a></li>
                     <li><a id="link-registroProducto" href="#registroProducto">Nuevo Producto</a></li>
