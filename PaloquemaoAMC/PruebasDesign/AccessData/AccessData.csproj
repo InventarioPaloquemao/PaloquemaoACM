@@ -39,11 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DSInventario.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSInventario.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ProcesoDB.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,17 +52,6 @@
     <None Include="app.config" />
     <None Include="Content\bootstrap-theme.css.map" />
     <None Include="Content\bootstrap.css.map" />
-    <None Include="DSInventario.xsc">
-      <DependentUpon>DSInventario.xsd</DependentUpon>
-    </None>
-    <None Include="DSInventario.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSInventario.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DSInventario.xss">
-      <DependentUpon>DSInventario.xsd</DependentUpon>
-    </None>
     <None Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
