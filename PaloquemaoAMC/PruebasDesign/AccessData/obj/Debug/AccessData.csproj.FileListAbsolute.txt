@@ -20,10 +20,10 @@ C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessDat
 C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\bin\Debug\AccessData.pdb
 C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.dll
 C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.pdb
-C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\bin\Debug\AccessData.pdb
+C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.csprojResolveAssemblyReference.cache
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\bin\Debug\AccessData.dll.config
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\bin\Debug\AccessData.dll
+C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\bin\Debug\AccessData.pdb
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.dll
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.pdb
 C:\Users\HP\Documents\Visual Studio 2012\Projects\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.csprojResolveAssemblyReference.cache
-C:\Users\JF\Documents\GitHub\PaloquemaoACM\PaloquemaoAMC\PruebasDesign\AccessData\obj\Debug\AccessData.csprojResolveAssemblyReference.cache
