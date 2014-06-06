@@ -39,16 +39,39 @@
 
                 <ul class="lb-album">
                     <li>
-                        <a href="#image-1">Inicie Sesión
-						</a>
-                        <div class="lb-overlay" id="image-1">
+                        
+                        <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
+                            <AnonymousTemplate>
+                                <a href="#image-1">Inicie Sesión
+						        </a>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                   
+                                        <p>Bienvenido,  <asp:LoginName runat="server"  ID="lntUser" ForeColor="Black" Font-Size="Medium" />
+                                            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Refresh" LogoutText=" Cerrar sesion" />
+                                        </p>
+                                    </div>
+                                </LoggedInTemplate>
+                            </asp:LoginView>
+                        
+                         <div class="lb-overlay" id="image-1">
+                         <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView">
+                            <AnonymousTemplate>
+                                <div class="form-2">
 
-                            <div class="form-2">
-                                <asp:Login ID="logUser" runat="server"></asp:Login>
-                            </div>
+                                           <asp:Login ID="logUser" runat="server" OnAuthenticate="logUser_Authenticate" OnLoggedIn="logUser_LoggedIn"></asp:Login>
 
-                            <a href="#page" class="lb-close">x Cerrar</a>
+                                     </div>
+                            </AnonymousTemplate>
+                             
+                        </asp:LoginView>
+                             
+                            <a href="#page" class="lb-close">X Cerrar</a>
                         </div>
+                       
+                         <!--/LoginView-->
+                                        
+                           
                     </li>
 
                 </ul>
