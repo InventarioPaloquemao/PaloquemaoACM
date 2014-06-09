@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AccessData.DSInventarioTableAdapters;
 using AccessData;
+using System.Data;
 namespace AcessData
 {
     public class ProcesoDatos
@@ -17,6 +18,9 @@ namespace AcessData
         private Detalle_PedidoTableAdapter objTADetallePedido = new Detalle_PedidoTableAdapter();
         private Entrada_ProductoTableAdapter objTAEntradaProducto = new Entrada_ProductoTableAdapter();
         private QueriesTableAdapter objStoredProcedure = new QueriesTableAdapter();
+        private Vista_Producto_AdministradorTableAdapter objTAVista_Administrador = new Vista_Producto_AdministradorTableAdapter();
+        DataTable ResultadoBusqueda = new DataTable();
+        
         private int _intFilasAfectadas = 0;
         
         //UserProfile CRUD
@@ -195,7 +199,7 @@ namespace AcessData
             try
             {
 
-                objDTProveedores.Rows.Add(objTAProveedor.GetData().Select("Proveedores.Estado_Proveedor = 1"));
+                objDTProveedores = objTAProveedor.GetData();
             }
             catch (Exception ex)
             {
@@ -259,7 +263,8 @@ namespace AcessData
             _intFilasAfectadas = 0;
             try
             {
-                _intFilasAfectadas = objTACategorias.Delete(idCategoria, descripcion, 1);
+                int intEstado = 1;
+                _intFilasAfectadas = objTACategorias.Delete(idCategoria, descripcion,intEstado);
             }
             catch (Exception ex)
             {
@@ -275,10 +280,10 @@ namespace AcessData
         public DSInventario.CategoriasDataTable ObtenerCategoria()
         {
             DSInventario.CategoriasDataTable objDTCategoria = new DSInventario.CategoriasDataTable();
-
+            
             try
             {
-                objDTCategoria.Rows.Add(objTACategorias.GetData().Select("EstadoCategoria = 1"));
+                objDTCategoria = objTACategorias.GetData();
             }
             catch (Exception ex)
             {
@@ -543,5 +548,26 @@ namespace AcessData
             }
             return objDTDetallePedido;
         }
+
+
+
+        //Vista Administardor
+
+        public DSInventario.Vista_Producto_AdministradorDataTable ObtenerDatosVistaAdministrador() 
+        {
+            DSInventario.Vista_Producto_AdministradorDataTable objVistaAdmin = new DSInventario.Vista_Producto_AdministradorDataTable();
+            try
+            {
+                objVistaAdmin = objTAVista_Administrador.GetData();
+            }
+            catch(Exception ex)
+            {
+                objVistaAdmin = null;
+            }
+            return objVistaAdmin;
+
+        }
+
+
     }
 }
