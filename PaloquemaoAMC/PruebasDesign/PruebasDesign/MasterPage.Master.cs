@@ -30,7 +30,7 @@ namespace PaloquemaoACM
             {
                 e.Authenticated = true;
             }
-            else 
+            else
             {
                 e.Authenticated = false;
             }
@@ -43,8 +43,9 @@ namespace PaloquemaoACM
             if (Roles.IsUserInRole(objMemeberShip.UserName, "admin"))
             {
                 Response.Redirect("/Default.aspx");
+              //  Response.Write("<script> alert('')</script>");
             }
-            else 
+            else
             {
                 Response.Redirect("/Default.aspx#image-1");
             }
