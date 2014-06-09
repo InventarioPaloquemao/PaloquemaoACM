@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AccessData.DSInventarioTableAdapters;
 using System.Data;
+using AcessData;
 
 
 namespace PaloquemaoACM
@@ -14,7 +15,7 @@ namespace PaloquemaoACM
     {
         string nombre;
         string categoria;
-        List <string> ListaEntrada=new List<string>();
+      
         /// <summary>
         /// Lista almacena una lista de tipo string
         /// </summary>
@@ -24,7 +25,7 @@ namespace PaloquemaoACM
         /// </summary>
        Button btnCategorias = new Button();
         string btn = "";
-
+        ProcesoDatos objProcesoDatos = new ProcesoDatos();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -45,87 +46,26 @@ namespace PaloquemaoACM
         /// </summary>
         protected void CargarDropDownList()
         {
-           // pa_ObtenerCategoriasTableAdapter 
-            CategoriasTableAdapter objCategoria = new CategoriasTableAdapter();
-            ProveedoresTableAdapter objAdapterProveedor = new ProveedoresTableAdapter();
-            ddlCategoria.DataSource = objCategoria.GetData();
-            ddlCategoria.DataTextField = "Descripcion";
-            ddlCategoria.DataValueField = "Id_Categoria";
-            ddlCategoria.DataBind();
-            ddlProveedor.DataSource = objAdapterProveedor.GetData();
-            ddlProveedor.DataTextField = "Nombre_Proveedor";
-            ddlProveedor.DataValueField = "Id_Proveedor";
-            ddlProveedor.DataBind();
-
-            if (ViewState["Valor"] != null)
+            try
             {
-                lblErrorProd.Text = (string)ViewState["Valor"];
+                ddlCategoria.DataSource = objProcesoDatos.ObtenerCategoria();
+                ddlCategoria.DataTextField = "Descripcion";
+                ddlCategoria.DataValueField = "Id_Categoria";
+                ddlCategoria.DataBind();
+                ddlProveedor.DataSource = objProcesoDatos.ObtenerProveedores();
+                ddlProveedor.DataTextField = "Nombre_Proveedor";
+                ddlProveedor.DataValueField = "Id_Proveedor";
+                ddlProveedor.DataBind();
+            }catch(Exception ex)
+            {
+                Response.Write("<script>alert('error\n "+ex.Message+"'\n en MetodoCargarDropDownList) </script>");
             }
+            
         }
 
         /// <summary>
-        /// Meotodo que responde al click del boton crear producto
+        /// Metodo encargado de crear el menu de las categorias
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        protected void btnCrearProducto_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int categoria= ddlCategoria.SelectedIndex+1;
-                ProductosTableAdapter objAdapter = new ProductosTableAdapter();
-                if ((ddlCategoria.SelectedIndex != 0 && ddlProveedor.SelectedIndex != 0))
-                {
-
-
-                    int filas = objAdapter.Insert(txbCodigo.Text.Trim(),
-                        txbNombreProd.Text.Trim(),
-                        Convert.ToInt32(txbCantixCaja.Text.Trim()),
-                        Convert.ToInt32(txbTotalUnidades.Text.Trim()),
-                        Convert.ToDecimal(txbPrecioProveedor.Text.Trim()),
-                        ddlProveedor.SelectedIndex,
-                       categoria
-                        );
-
-                    if (filas > 0)
-                    {
-
-                        lblErrorProd.Text = "Nuevo producto";
-                        ViewState.Add("Valor",lblErrorProd);
-                        Response.Redirect("/Default.aspx#registroProducto");
-                       
-                        
-                        
-                    }
-                    else
-                    {
-                        lblErrorProd.Text = "No se puede crear el producto";
-                        ViewState.Add("Valor", lblErrorProd);
-                        Response.Redirect("/Default.aspx#registroProducto");
-                       
-                        
-                    }
-
-
-                }
-                else
-                {
-                    lblErrorProd.Text = "Seleccione un valor en las listas despegables";
-                    ViewState.Add("Valor", lblErrorProd);
-                    Response.Redirect("/Default.aspx#registroProducto");
-                   
-                }
-            }
-            catch
-            {
-
-            }
-
-
-
-        }
-
         protected void MenuCategoria()
         {
             try
@@ -134,10 +74,10 @@ namespace PaloquemaoACM
                 int iteraciones = 0;
                 /// Instancia de un DataTable
                 DataTable objCategoriaTablaBuscada = new DataTable();
-                ///Instancia de un Table Adapter para las categorias
-                pa_ObtenerCategoriasTableAdapter objpaCategoria = new pa_ObtenerCategoriasTableAdapter();
+               
+                
                 //Obtengo los valores almacenados en el DataSet y los asigono a un datatable
-                objCategoriaTablaBuscada = objpaCategoria.GetData();
+                objCategoriaTablaBuscada = objProcesoDatos.ObtenerCategoria();  
                 ///Agrego valores a la lista desde un datatable recorriendo las filas y obteniendo los valores de la celda especifica 
                 for (int i = 0; i < objCategoriaTablaBuscada.Rows.Count; i++)
                 {
@@ -157,7 +97,7 @@ namespace PaloquemaoACM
                 ///agregandoles atributos y eventos 
                 foreach (string linea in lista)
                 {
-
+                    if(!linea.StartsWith("--")){    
                     btnCategorias = new Button();
                     btnCategorias.ID = linea;
                     btnCategorias.Text = linea;
@@ -183,9 +123,13 @@ namespace PaloquemaoACM
                         tableNav.Controls.Add(objFila);
                         iteraciones = 0;
                     }
+                  }
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Response.Write("<script>alert('error\n "+ex.Message+" \n en el metodo MenuCategorias')</script>");
+            }
         }
         /// <summary>
         /// Metodo encargado de enlazar el origen de datos para el gridview
@@ -196,11 +140,10 @@ namespace PaloquemaoACM
             try
             {
                 //Instancia del Table Adapter  correspondiente a la vista para el administrador
-                Vista_Producto_EmpleadoTableAdapter objProductosTA = new Vista_Producto_EmpleadoTableAdapter();
-
+                
                 DataTable objTablaBuscadaProductos = new DataTable();
 
-                objTablaBuscadaProductos = objProductosTA.GetData();
+                objTablaBuscadaProductos = objProcesoDatos.ObtenerDatosVistaAdministrador();
 
 
                 //Valido el nombre de la categoria 
@@ -216,7 +159,10 @@ namespace PaloquemaoACM
                 }
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                Response.Write("<script>alert(error \n'"+ex.Message +"\n en Metodo para cargar gridwiev')</script>");
+            }
 
 
         }
@@ -231,18 +177,21 @@ namespace PaloquemaoACM
 
             try
             {
-                //Instancio un objeto de la clase control
-                System.Web.UI.Control controlIN = new Control();
-                //Cast para obtener el nombre del control que desencadena el metodo
-                controlIN = (Control)Sender;
-                //Accedo al ID del control
-                string btn = controlIN.ID;
-                ///invoco el metodo para llenar gridview
-                cargarGridView(btn);
-                gvCategorias.Visible = true;
+            //Instancio un objeto de la clase control
+            System.Web.UI.Control controlIN = new Control();
+            //Cast para obtener el nombre del control que desencadena el metodo
+            controlIN = (Control)Sender;
+            //Accedo al ID del control
+            string btn = controlIN.ID;
+            //invoco el metodo para llenar gridview
+            cargarGridView(btn);
+            gvCategorias.Visible = true;
 
             }
-            catch (ArgumentOutOfRangeException ex) { }
+            catch (ArgumentOutOfRangeException ex) 
+            {
+                Response.Write("<script>alert('error \n"+ex.Message +"\n en EventoClickLinkButtom')</script>");
+            }
         }
 
 
@@ -263,13 +212,12 @@ namespace PaloquemaoACM
         {
             try
             {
-                List<string> objLista = new List<string>();
-                TableRow objFila = new TableRow();
-
-                Vista_Producto_AdministradorTableAdapter objProductos = new Vista_Producto_AdministradorTableAdapter();
+            
+                TableRow objFila = new TableRow(); 
+                //AccessData.DSInventario.Vista_Producto_AdministradorDataTable objTabla = new AccessData.DSInventario.Vista_Producto_AdministradorDataTable();   
                 DataTable objTabla = new DataTable();
                 //Obtengo los valores en el table adapter
-                objTabla = objProductos.GetData();
+                objTabla = objProcesoDatos.ObtenerDatosVistaAdministrador();
 
                 string consulta = "[NOMBRE PRODUCTO] LIKE  '" + txbBuscar.Text.Trim() + "%'";
                 //realizo la consulta en la tabla y realizo una consulta con parametros de filtro
@@ -277,8 +225,10 @@ namespace PaloquemaoACM
                 gvCategorias.DataBind();
                 gvCategorias.Visible = true;
             }
-            catch (Exception)
-            { }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('error\n "+ex.Message+"\n en Metodo llenarDatos')</script>");
+            }
         }
         /// <summary>
         /// Evento al cual responde el gridview al hacer click en la fila
@@ -287,27 +237,57 @@ namespace PaloquemaoACM
         /// <param name="e"></param>
         protected void gvCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow objFila=gvCategorias.SelectedRow;
-            
-            if(objFila != null){
-                 nombre = objFila.Cells[1].Text;
-                 categoria = objFila.Cells[2].Text;
-                 txbNombreProducto.Focus();
-                 txbNombreProducto.Text = nombre;
-                 txbCategoria.Text = categoria;
-                 ListaEntrada.Add(nombre);
-                 ListaEntrada.Add(categoria);
-                 ViewState.Add("ValoresProductos",ListaEntrada);
-                Response.Redirect("/Default.aspx#regProducto");
+            try
+            {
+                GridViewRow objFila = gvCategorias.SelectedRow;
+
+                if (objFila != null)
+                {
+                    gvCategorias.Visible = false;
+                }
+            }catch(Exception ex)
+            {
+              Response.Write("<script>alert('error\n "+ex.Message+"\n en evento generado despues de seleccionar una fila en GridView')</script>");
             }
         }
 
-        protected void btnActualizarCantidad_Click(object sender, EventArgs e)
+  
+
+        /// <summary>
+        /// Evento que se desencadena al dar click en el boton crear producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnCrearProducto_Click1(object sender, EventArgs e)
         {
-           
+
+            int intFilasAfectadas = 0;
+       
+            try 
+            {
+
+                intFilasAfectadas = objProcesoDatos.InsertarProducto(txbNombreProd.Text.Trim(), Convert.ToInt32(txbCantixCaja.Text.Trim()), Convert.ToInt32(txbTotalUnidades.Text.Trim()), Convert.ToDecimal(txbPrecioProveedor.Text.Trim()), Convert.ToInt32(ddlProveedor.SelectedValue),Convert.ToInt32(ddlCategoria.SelectedValue));
+                if (intFilasAfectadas > 0)
+                {
+                   
+                  //  Response.Redirect("/Default.aspx#registroProducto");
+                    Response.Write("<script> alert('Nuevo producto')</script>");
+                }
+                else
+                {
+                    Response.Write("<script> alert('NO se puede crear producto')</script>");
+                }
+            }catch(Exception ex)
+            {
+                Response.Write("<script> alert(' "+ex.Message+" ')</script>");
+            }
+            
+        }
+
+      
 
         }
 
 
-    }
+    
 }
